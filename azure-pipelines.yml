@@ -6,15 +6,13 @@
 trigger:
 - main
 
-pool:
-  vmImage: windows-latest
 
 stages:
   - stage: Publish
     jobs:
       - job: PublishBicepModule
         pool: 
-          vmImage: windows-latest
+          vmImage: ubuntu-latest
         steps:           
           - task: PowerShell@2
             name: InstallBicep
