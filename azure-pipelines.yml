@@ -9,6 +9,18 @@ trigger:
 pool:
   vmImage: windows-latest
 
-steps:
-- script: netstat -ano
-  displayName: 'Run a one-line script'
+stages:
+  - stage: Publish
+    jobs:
+      - job: PublishBicepModule
+        pool: 
+          vmImage: windows-latest
+        steps:           
+          - task: PowerShell@2
+            name: InstallBicep
+            displayName: Install Bicep
+            inputs:
+              pwsh: true
+              targetType: inline
+              script: |
+                az bicep install
