@@ -21,4 +21,4 @@ stages:
               pwsh: true
               targetType: inline
               script: |
-                az bicep install --version v0.14.46
+                az bicep --version 
